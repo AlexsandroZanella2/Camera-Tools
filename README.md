@@ -1,2 +1,3 @@
 # Camera-Tools
-Camera Tools is an example of using the fully functional Google ML Kit
+Camera Tools is a fully functional example of using the Google ML Kit
+
