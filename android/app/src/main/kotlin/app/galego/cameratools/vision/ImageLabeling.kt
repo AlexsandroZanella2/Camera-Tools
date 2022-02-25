@@ -1,4 +1,4 @@
-package app.galego.cameratools.natural
+package app.galego.cameratools.vision
 
 import androidx.annotation.NonNull
 import app.galego.cameratools.interfaces.MethodChannelInterface
@@ -17,25 +17,20 @@ import java.nio.ReadOnlyBufferException
 import java.nio.*
 import java.util.*
 
-import com.google.mlkit.nl.entityextraction.DateTimeEntity
-import com.google.mlkit.nl.entityextraction.Entity
-import com.google.mlkit.nl.entityextraction.EntityAnnotation
-import com.google.mlkit.nl.entityextraction.EntityExtraction
-import com.google.mlkit.nl.entityextraction.EntityExtractionParams
-import com.google.mlkit.nl.entityextraction.EntityExtractorOptions
-import com.google.mlkit.nl.entityextraction.FlightNumberEntity
-import com.google.mlkit.nl.entityextraction.IbanEntity
-import com.google.mlkit.nl.entityextraction.IsbnEntity
-import com.google.mlkit.nl.entityextraction.MoneyEntity
-import com.google.mlkit.nl.entityextraction.PaymentCardEntity
-import com.google.mlkit.nl.entityextraction.TrackingNumberEntity
+import com.google.mlkit.vision.label.ImageLabel
+import com.google.mlkit.vision.label.ImageLabeler
+import com.google.mlkit.vision.label.ImageLabeling
+import com.google.mlkit.vision.label.automl.AutoMLImageLabelerLocalModel
+import com.google.mlkit.vision.label.automl.AutoMLImageLabelerOptions
+import com.google.mlkit.vision.label.custom.CustomImageLabelerOptions
+import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 
 import android.content.Context
 import android.content.ContextWrapper
 
-public class ExtractEntities(var _context: Context): MethodChannelInterface{
-    private val START: String = "start#ExtractEntities"
-    private val CLOSE: String = "close#ExtractEntities"
+public class ImageLabeling(var _context: Context): MethodChannelInterface{
+    private val START: String = "start#ImageLabeling"
+    private val CLOSE: String = "close#ImageLabeling"
 
     var barcodeScanner: BarcodeScanner? = null
 
@@ -59,6 +54,7 @@ public class ExtractEntities(var _context: Context): MethodChannelInterface{
             result?.error("ImplementionException","Not Implemented Method", null)
         }
     }
+
 
 
 }
