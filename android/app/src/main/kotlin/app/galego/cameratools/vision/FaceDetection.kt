@@ -44,14 +44,15 @@ public class FaceDetection(var _context: Context): MethodChannelInterface{
 
     override fun onMethodCall(@NonNull call: MethodCall?, @NonNull result: MethodChannel.Result?){
         val method: String? = call?.method
-        if (method == "") {
+        if (method == START) {
             handleDetection(call!!, result!!)
-        } else if (method == "") {
-            result?.success(null)
         } else {
             result?.error("ImplementionException","Not Implemented Method", null)
         }
     }
 
+    private fun handleDetection(call: MethodCall, result: MethodChannel.Result){
+
+    }
 
 }

@@ -19,10 +19,10 @@ import java.util.*
 
 import com.google.mlkit.common.model.CustomRemoteModel
 import com.google.mlkit.common.model.LocalModel
-import com.google.mlkit.linkfirebase.FirebaseModelSource
+//import com.google.mlkit.linkfirebase.FirebaseModelSource
 import com.google.mlkit.vision.objects.DetectedObject
 import com.google.mlkit.vision.objects.ObjectDetection
-import com.google.mlkit.vision.objects.custom.CustomObjectDetectorOptions
+//import com.google.mlkit.vision.objects.custom.CustomObjectDetectorOptions
 import com.google.mlkit.vision.objects.defaults.ObjectDetectorOptions
 
 import android.content.Context
@@ -31,8 +31,6 @@ import android.content.ContextWrapper
 public class ObjectDetection(var _context: Context): MethodChannelInterface{
     private val START: String = "start#ObjectDetection"
     private val CLOSE: String = "close#ObjectDetection"
-
-    var barcodeScanner: BarcodeScanner? = null
 
     private var context: Context? = null
 
@@ -46,14 +44,15 @@ public class ObjectDetection(var _context: Context): MethodChannelInterface{
 
     override fun onMethodCall(@NonNull call: MethodCall?, @NonNull result: MethodChannel.Result?){
         val method: String? = call?.method
-        if (method == "") {
+        if (method == START) {
             handleDetection(call!!, result!!)
-        } else if (method == "") {
-            result?.success(null)
         } else {
             result?.error("ImplementionException","Not Implemented Method", null)
         }
     }
 
+    private fun handleDetection(call: MethodCall, result: MethodChannel.Result){
+
+    }
 
 }

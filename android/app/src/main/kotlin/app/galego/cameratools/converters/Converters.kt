@@ -7,6 +7,10 @@ import android.media.Image
 import android.media.ImageReader
 
 import kotlin.experimental.inv
+import io.flutter.plugin.common.MethodCall
+
+import java.nio.*
+import java.util.*
 
 public class Converters {
 

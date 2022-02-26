@@ -14,6 +14,7 @@ import app.galego.cameratools.natural.ExtractEntities
 import app.galego.cameratools.natural.IdentifyLanguage
 import app.galego.cameratools.natural.SmartReplies
 import app.galego.cameratools.natural.TranslateText
+import app.galego.cameratools.keyguard.KeyGuard
 import androidx.annotation.NonNull
 
 import io.flutter.plugin.common.MethodCall
@@ -39,7 +40,8 @@ public class MethodCallHandler(context: Context) : MethodChannel.MethodCallHandl
     init {
         val detectors: List<MethodChannelInterface> = ArrayList<MethodChannelInterface>(
                 Arrays.asList(
-                        BarcodeScanner()
+                        BarcodeScanner(context),
+                        KeyGuard(context)
                 ))
         handlers = HashMap<String, MethodChannelInterface>()
         for (detector in detectors) {

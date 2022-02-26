@@ -21,7 +21,7 @@ import com.google.mlkit.vision.pose.Pose
 import com.google.mlkit.vision.pose.PoseDetection
 import com.google.mlkit.vision.pose.PoseLandmark
 import com.google.mlkit.vision.pose.accurate.AccuratePoseDetectorOptions
-import com.google.mlkit.vision.pose.defaults.PoseDetectorOptions
+//import com.google.mlkit.vision.pose.defaults.PoseDetectorOptions
 
 import android.content.Context
 import android.content.ContextWrapper
@@ -29,8 +29,6 @@ import android.content.ContextWrapper
 public class PoseDetection(var _context: Context): MethodChannelInterface {
     private val START: String = "start#PoseDetection"
     private val CLOSE: String = "close#PoseDetection"
-
-    var barcodeScanner: BarcodeScanner? = null
 
     private var context: Context? = null
 
@@ -44,14 +42,15 @@ public class PoseDetection(var _context: Context): MethodChannelInterface {
 
     override fun onMethodCall(@NonNull call: MethodCall?, @NonNull result: MethodChannel.Result?){
         val method: String? = call?.method
-        if (method == "") {
+        if (method == START) {
             handleDetection(call!!, result!!)
-        } else if (method == "") {
-            result?.success(null)
         } else {
             result?.error("ImplementionException","Not Implemented Method", null)
         }
     }
 
+    private fun handleDetection(call: MethodCall, result: MethodChannel.Result){
+
+    }
 
 }

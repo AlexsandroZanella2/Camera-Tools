@@ -2,14 +2,16 @@ package app.galego.cameratools.vision
 
 import androidx.annotation.NonNull
 
-import app.galego.cameratools.MethodChannelInterface
+import app.galego.cameratools.interfaces.MethodChannelInterface
 
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 
 import com.google.mlkit.vision.text.TextRecognizer
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+//import com.google.mlkit.vision.text.TextRecognizerOptionsInterface
 import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+
 import com.google.mlkit.vision.common.InputImage
 
 import io.flutter.plugin.common.MethodCall
@@ -50,7 +52,6 @@ public class TextRecognition(var _context: Context): MethodChannelInterface {
 
     private fun handleDetection(call: MethodCall, result: MethodChannel.Result){
         try{
-            //val dataImage = call.argument<ByteArray>("imageData")
             val filePath = call.argument<String>("path")
 
             var image = InputImage.fromFilePath(context!!, Uri.fromFile(java.io.File(filePath!!)))

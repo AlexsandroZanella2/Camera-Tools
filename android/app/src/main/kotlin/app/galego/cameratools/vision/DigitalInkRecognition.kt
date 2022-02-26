@@ -32,8 +32,6 @@ public class DigitalInkRecognition(var _context: Context): MethodChannelInterfac
     private val START: String = "start#DigitalInkRecognition"
     private val CLOSE: String = "close#DigitalInkRecognition"
 
-    var barcodeScanner: BarcodeScanner? = null
-
     private var context: Context? = null
 
     init {
@@ -46,14 +44,15 @@ public class DigitalInkRecognition(var _context: Context): MethodChannelInterfac
 
     override fun onMethodCall(@NonNull call: MethodCall?, @NonNull result: MethodChannel.Result?){
         val method: String? = call?.method
-        if (method == "") {
+        if (method == START) {
             handleDetection(call!!, result!!)
-        } else if (method == "") {
-            result?.success(null)
         } else {
             result?.error("ImplementionException","Not Implemented Method", null)
         }
     }
 
+    private fun handleDetection(call: MethodCall, result: MethodChannel.Result){
+
+    }
 
 }

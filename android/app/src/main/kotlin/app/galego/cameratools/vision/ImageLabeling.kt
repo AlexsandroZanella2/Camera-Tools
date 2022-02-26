@@ -20,9 +20,9 @@ import java.util.*
 import com.google.mlkit.vision.label.ImageLabel
 import com.google.mlkit.vision.label.ImageLabeler
 import com.google.mlkit.vision.label.ImageLabeling
-import com.google.mlkit.vision.label.automl.AutoMLImageLabelerLocalModel
-import com.google.mlkit.vision.label.automl.AutoMLImageLabelerOptions
-import com.google.mlkit.vision.label.custom.CustomImageLabelerOptions
+//import com.google.mlkit.vision.label.automl.AutoMLImageLabelerLocalModel
+//import com.google.mlkit.vision.label.automl.AutoMLImageLabelerOptions
+//import com.google.mlkit.vision.label.custom.CustomImageLabelerOptions
 import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 
 import android.content.Context
@@ -31,8 +31,6 @@ import android.content.ContextWrapper
 public class ImageLabeling(var _context: Context): MethodChannelInterface{
     private val START: String = "start#ImageLabeling"
     private val CLOSE: String = "close#ImageLabeling"
-
-    var barcodeScanner: BarcodeScanner? = null
 
     private var context: Context? = null
 
@@ -46,15 +44,15 @@ public class ImageLabeling(var _context: Context): MethodChannelInterface{
 
     override fun onMethodCall(@NonNull call: MethodCall?, @NonNull result: MethodChannel.Result?){
         val method: String? = call?.method
-        if (method == "") {
+        if (method == START) {
             handleDetection(call!!, result!!)
-        } else if (method == "") {
-            result?.success(null)
         } else {
             result?.error("ImplementionException","Not Implemented Method", null)
         }
     }
 
+    private fun handleDetection(call: MethodCall, result: MethodChannel.Result){
 
+    }
 
 }

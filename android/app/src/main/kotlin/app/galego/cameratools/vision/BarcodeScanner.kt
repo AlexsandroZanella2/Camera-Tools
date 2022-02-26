@@ -50,10 +50,8 @@ public  class BarcodeScanner(var _context: Context): MethodChannelInterface{
 
     override fun onMethodCall(@NonNull call: MethodCall?, @NonNull result: MethodChannel.Result?){
         val method: String? = call?.method
-        if (method == "") {
+        if (method == START) {
             handleDetection(call!!, result!!)
-        } else if (method == "") {
-            result?.success(null)
         } else {
             result?.error("ImplementionException","Not Implemented Method", null)
         }
@@ -61,20 +59,7 @@ public  class BarcodeScanner(var _context: Context): MethodChannelInterface{
 
     private fun handleDetection(call: MethodCall, result: MethodChannel.Result){
         try{
-//            val width = call.argument<Int>("width")
-//            val height = call.argument<Int>("height")
-//            val rotation = call.argument<Int>("rotation")
-//            val p0 = call.argument<ByteArray>("plane0")
-//            val p1 = call.argument<ByteArray>("plane1")
-//            val p2 = call.argument<ByteArray>("plane2")
-//            val prs0 = call.argument<Int>("prs0")
-//            val prs1 = call.argument<Int>("prs1")
-//            val prs2 = call.argument<Int>("prs2")
-//            val pps0 = call.argument<Int>("pps0")
-//            val pps1 = call.argument<Int>("pps1")
-//            val pps2 = call.argument<Int>("pps2")
-//            val dataImage = YUV_420_888toNV21(width!!, height!!, p0!!, p1!!, p2!!, prs0!!, prs1!!, prs2!!, pps0!!, pps1!!, pps2!!)
-            val image = Converters.InputImageFromMethodCall(call)// InputImageFromByteArray(dataImage!!, width!!, height!!, rotation!!)
+            val image = Converters.InputImageFromMethodCall(call)
 
             val options = BarcodeScannerOptions.Builder()
                     .setBarcodeFormats(
